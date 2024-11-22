@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 
 interface User {
-  _id: string;
-  name: string;
-  email: string;
+  userid: string;
+  userWalletAddress: string;
+  profilePic: string;
 }
 
 const UserList = () => {
@@ -40,8 +40,8 @@ const UserList = () => {
       <h1>User List</h1>
       <ul>
         {users.map((user) => (
-          <li key={user._id}>
-            {user.name} ({user.email})
+          <li key={user.userid}>
+            {user.userWalletAddress} ({user.profilePic})
           </li>
         ))}
       </ul>
