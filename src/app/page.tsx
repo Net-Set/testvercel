@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Page from "../pages/users"
 export default function Home() {
   return (
