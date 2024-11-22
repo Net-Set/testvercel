@@ -1,3 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals", // Includes recommended Next.js rules with Core Web Vitals checks.
+    "next/typescript" // Adds TypeScript-specific linting rules for Next.js projects.
+  ]
 }
