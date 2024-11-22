@@ -1,4 +1,10 @@
 import { MongoClient } from 'mongodb';
+
+
+declare global {
+  var _mongoClientPromise: Promise<MongoClient> | undefined;
+}
+
 const MONGODB_URI = process.env.MONGODB_URI;
 const MONGODB_DB = process.env.MONGODB_DB;
 
@@ -25,7 +31,9 @@ if (process.env.NODE_ENV === "development") {
   clientPromise = client.connect();
 }
 
-export async function getCollection<T>(collectionName: string) {
+import { Document } from 'mongodb';
+
+export async function getCollection<T extends Document>(collectionName: string) {
   const client = await clientPromise;
   const db = client.db(MONGODB_DB);
   return db.collection<T>(collectionName);
